@@ -6,6 +6,9 @@ let snakeArray = [{ x: 13, y: 15 }];
 let food = { x: 15, y: 17 };
 let snake = 0;
 let score = 0;
+const gameOver = new Audio("js/gameOver.mp3");
+const move = new Audio("js/move.wav");
+const eat = new Audio("js/eat.wav");
 
 //Game Functions
 function main(ctime) {
@@ -33,6 +36,7 @@ function isCollide(sarr) {
 function gameEngine() {
   //Part 1: Updating the snake and food
   if (isCollide(snakeArray)) {
+    gameOver.play();
     inputDir = { x: 0, y: 0 };
     alert("Game Over, Press Enter to start the game");
     snakeArray = [{ x: 13, y: 15 }];
@@ -43,6 +47,7 @@ function gameEngine() {
   let a = 2;
   let b = 16;
   if (snakeArray[0].y === food.y && snakeArray[0].x === food.x) {
+    eat.play();
     snakeArray.unshift({ x: snakeArray[0].x + inputDir.x, y: snakeArray[0].y + inputDir.y });
     food = { x: Math.round(a + (b - a) * Math.random()), y: Math.round(a + (b - a) * Math.random()) };
     score += 1;
@@ -94,21 +99,25 @@ window.addEventListener("keydown", (e) => {
       // console.log("ArrowUp");
       inputDir.x = 0;
       inputDir.y = -1;
+      move.play();
       break;
 
     case "ArrowDown":
+      move.play();
       // console.log("ArrowDown");
       inputDir.x = 0;
       inputDir.y = 1;
       break;
 
     case "ArrowLeft":
+      move.play();
       // console.log("ArrowLeft");
       inputDir.x = -1;
       inputDir.y = 0;
       break;
     case "ArrowRight":
       // console.log("ArrowRight");
+      move.play();
       inputDir.x = 1;
       inputDir.y = 0;
       break;
