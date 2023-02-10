@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,500&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    
+
+}
+#board{
+    height: 600px;
+    width: 600px;
+    background-color: aqua;
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+    
+        background: url('../js/snakeboard.jpg');
+        background-size: cover;
+    }
+    .body{
+        font-family: 'Source Sans Pro', sans-serif;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url('../js/bg.jpg');
+        background-size: cover;
+}
+
+.head{
+    /* background-color: rgb(0, 255, 76); */
+    border-radius: 50%;
+    z-index: 9;
+    border: 1px solid black;
+    width: 32px;
+    
+}
+.snake{
+    /* background-color:red; */
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 32px;
+
+}
+.food{
+    width: 32px;
+}
+
+#scoreBox{
+    position: absolute;
+    top: 20px;
+right: 100px;
+font-size: 40px;
+}
